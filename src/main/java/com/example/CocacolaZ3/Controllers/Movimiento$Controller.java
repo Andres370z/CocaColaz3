@@ -19,7 +19,7 @@ public class Movimiento$Controller {
     public ArrayList<Transacciones> seleccionaTodo(){
         return this.movimientosService.seleccionaTodo();
     }
-    @RequestMapping("{id}")
+    @RequestMapping("id")
     public Transacciones gerTransaccione(@PathVariable int id){
         return this.movimientosService.seleccionaUno(id);
     }

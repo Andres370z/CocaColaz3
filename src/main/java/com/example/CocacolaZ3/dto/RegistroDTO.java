@@ -1,33 +1,13 @@
-package com.example.CocacolaZ3.Entities;
+package com.example.CocacolaZ3.dto;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "Usuarios")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "Nombres")
+public class RegistroDTO {
     private String Nombre;
-    @Column(name = "Correo")
-    private String Correo;
-    @Column(name = "Password", length = 200)
-    private String Contraseña;
-    @Column(name = "Apellidos")
     private String Apellidos;
-    @Column(name = "NumeroDocumento")
+    private String Correo;
+    private String Contraseña;
     private String NumeroDocumento;
-    @Column(name = "TipoDocumento")
     private String TipoDocumento;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private String ValidaPassword;
 
     public String getNombre() {
         return Nombre;
@@ -35,6 +15,14 @@ public class User {
 
     public void setNombre(String nombre) {
         Nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return Apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        Apellidos = apellidos;
     }
 
     public String getCorreo() {
@@ -53,14 +41,6 @@ public class User {
         Contraseña = contraseña;
     }
 
-    public String getApellidos() {
-        return Apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        Apellidos = apellidos;
-    }
-
     public String getNumeroDocumento() {
         return NumeroDocumento;
     }
@@ -75,5 +55,13 @@ public class User {
 
     public void setTipoDocumento(String tipoDocumento) {
         TipoDocumento = tipoDocumento;
+    }
+
+    public String getValidaPassword() {
+        return ValidaPassword;
+    }
+
+    public void setValidaPassword(String validaPassword) {
+        ValidaPassword = validaPassword;
     }
 }

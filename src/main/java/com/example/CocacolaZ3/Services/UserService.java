@@ -17,10 +17,20 @@ public class UserService {
    public UserService(IUserRepository repUser){this.userRepository = repUser;}
    public Reponse creaUsuario(User nuevoUsuario){
       Reponse reponse = new Reponse();
+      ArrayList<User> existe =this.userRepository.existeCorreo(nuevoUsuario.getCorreo());
+      if (existe != null && existe.size() > 0){
+         reponse.setCode(500);
+         reponse.setMensaje("Lamentablemente el correo ya esta en uso");
+         return reponse;
+      }
       this.userRepository.save(nuevoUsuario);
       reponse.setCode(200);
       reponse.setMensaje("Usuario registrado correctamente");
       return reponse;
+
+
+
+
    }
    ///METODO QUE PERMITE VALIDAR SI USUARIO Y CONTRASEÑAS EXISTEN EN LA BASE DE DATOS CON AYUDA DE IUSER REPOSITORY
    public Reponse loginUser(User data){
@@ -34,7 +44,11 @@ public class UserService {
       reponse.setCode(500);
       reponse.setMensaje("Lamentablemente su usuario o contraseña son incorrectos");
       return reponse;
+
+
+
    }
+
 
 
 
